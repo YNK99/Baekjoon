@@ -1,14 +1,13 @@
 def solution(sizes):
     answer = 0
-    g = []
-    s = []
-    
-    for size in sizes:
-        if size[0] <= size[1]:
-            g.append(size[1])
-            s.append(size[0])
+    w = []
+    h = []
+    for i, j in sizes:
+        if i < j:
+            h.append(i)
+            w.append(j)
         else:
-            g.append(size[0])
-            s.append(size[1])
-    answer = max(g) * max(s)
+            h.append(j)
+            w.append(i)
+    answer = max(w) * max(h)
     return answer
