@@ -4,8 +4,8 @@ def solution(s, n):
     answer = ''
     small = [chr(i) for i in range(97, 123)]
     big = [chr(j) for j in range(65, 91)]
-    rotation_small = small[n:] + small[0:n]
-    rotation_big = big[n:] + big[0:n]
+    rotation_small = small[n:] + small[:n]
+    rotation_big = big[n:] + big[:n]
     answer = ''
     for i in s:
         if i in small:
