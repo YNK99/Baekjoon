@@ -1,18 +1,17 @@
+from collections import deque
+
 def solution(s, n):
     answer = ''
-    small_alphabet = [chr(i) for i in range(97, 123)]
-    big_alphabet = [chr(j) for j in range(65, 91)]
-    for k in s:
-        if k in small_alphabet:
-            if small_alphabet.index(k) + n > 25:
-                answer += small_alphabet[small_alphabet.index(k) + n - 25 - 1]
-            else:
-                answer += small_alphabet[small_alphabet.index(k) + n]
-        elif k == " ":
-            answer += " "
+    small = [chr(i) for i in range(97, 123)]
+    big = [chr(j) for j in range(65, 91)]
+    rotation_small = small[n:] + small[0:n]
+    rotation_big = big[n:] + big[0:n]
+    answer = ''
+    for i in s:
+        if i in small:
+            answer += rotation_small[small.index(i)]
+        elif i in big:
+            answer += rotation_big[big.index(i)]
         else:
-            if big_alphabet.index(k) + n > 25:
-                answer += big_alphabet[big_alphabet.index(k) + n - 25 - 1]
-            else:
-                answer += big_alphabet[big_alphabet.index(k) + n]
+            answer += ' '
     return answer
