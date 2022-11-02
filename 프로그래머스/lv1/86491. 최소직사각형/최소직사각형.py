@@ -1,5 +1,4 @@
 def solution(sizes):
-    answer = 0
     w = []
     h = []
     for i, j in sizes:
