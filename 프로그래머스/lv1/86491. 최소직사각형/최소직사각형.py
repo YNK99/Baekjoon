@@ -8,5 +8,4 @@ def solution(sizes):
         else:
             h.append(j)
             w.append(i)
-    answer = max(w) * max(h)
-    return answer
+    return max(w) * max(h)
