@@ -1,25 +1,18 @@
-city = int(input())
-length = list(map(int, input().split()))
-oil_price = list(map(int, input().split()))
-oil_price = oil_price[0:len(oil_price) - 1]
-F = 0
-last_price = 0
+# 최소 비용으로 주유하여 목적지까지 가는 문제
+# 이게... 그리디 풀이법인가...?
 
-for c in range(0, city - 1, 1):    
-    if c == 0:
-        F = oil_price[0] * length[0]
-        last_price = oil_price[0]
+N = int(input())
+road = list(map(int, input().split()))
+price = list(map(int, input().split()))[:-1]   # 마지막 도시의 기름값은 필요 없음
 
-    else:
-        if last_price >= oil_price[c]:
-            F += oil_price[c] * length[c]
-            last_price = oil_price[c]
-        # 만약 저번 기름값이 지금 기름값보다 크거나 같으면:
-        #     주유함
-        #     요금 = 요금 + 지금 기름값 * 갈 거리
-        else:
-            F += last_price * length[c]
-        # 만약 저번 기름값이 지금 기름값보다 작으면:
-        #     요금 = 요금 + 저번 기름값 * 저번 갈 거리
+cost = 0
+last_price = price[0]   # 처음값은 첫번째 도시의 기름값
 
-print(F)
+for i in range(N - 1):
+    if price[i] > last_price:             # 현재 기름값이 저번 기름값보다 크다
+        cost += road[i] * last_price    # 그럼 저번 기름값 * 갈 도로 길이
+    else:                                 # 현재 기름값이 저번 기름값보다 작거나 같다
+        cost += road[i] * price[i]      # 그럼 현재 기름값 * 갈 도로 길이
+        last_price = price[i]             # 그리고 바로 저번 기름값을 업데이트
+
+print(cost)
