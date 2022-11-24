@@ -1,11 +1,12 @@
 N = int(input())
-members =[]
+members = []
 
 for _ in range(N):
-    age, name = list(input().split())
-    members.append([int(age), name])
+    age, name = input().split()
+    age = int(age)    # int 형으로 꼭 바꿔야함ㅠㅠㅠ
+    members.append([age, name])
 
-sorted_members = sorted(members, key = lambda x:x[0], reverse = False)
+members = sorted(members, key = lambda x:x[0])
 
-for i in sorted_members:
-    print(i[0], i[1])
+for member in members:
+    print(*member)
