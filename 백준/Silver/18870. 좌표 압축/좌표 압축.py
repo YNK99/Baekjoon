@@ -1,8 +1,6 @@
 N = int(input())
-nums = list(map(int, input().split()))
-sorted_nums = sorted(set(nums))
-r = list(range(N))
-my_dict = dict(zip(sorted_nums, r))
+X = list(map(int, input().split()))
+sorted_X = {c[0]:c[1] for c in zip(sorted(set(X)), range(len(X)+1))}
 
-for i, nums in enumerate(nums):
-    print(my_dict[nums], end = ' ')
+for i in X:
+    print(sorted_X[i], end = ' ')
