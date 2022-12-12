@@ -4,11 +4,11 @@
 
 ### 성능 요약
 
-메모리: 46116 KB, 시간: 864 ms
+메모리: 52172 KB, 시간: 184 ms
 
 ### 분류
 
-이분 탐색(binary_search), 자료 구조(data_structures), 해시를 사용한 집합과 맵(hash_set)
+이분 탐색(binary_search), 자료 구조(data_structures), 정렬(sorting)
 
 ### 문제 설명
 

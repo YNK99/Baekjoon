@@ -1,24 +1,12 @@
-import sys
+N = int(input())
+A1 = list(map(int, input().split()))
+M = int(input())
+A2 = list(map(int, input().split()))
 
-N = int(sys.stdin.readline())
-A = sorted(list(map(int, sys.stdin.readline().split())))
+same = set(A1) & set(A2)
 
-B = int(sys.stdin.readline())
-M = list(map(int, sys.stdin.readline().split()))
-
-for m in M:
-    start = 0
-    end = len(A) - 1
-    while True:
-        if start <= end:
-            mid = (start + end) // 2
-            if A[mid] == m:
-                print(1)
-                break
-            elif A[mid] > m:
-                end = mid - 1
-            else:
-                start = mid + 1
-        else:
-            print(0)
-            break
+for i in A2:
+    if i in same:
+        print(1)
+    else:
+        print(0)
