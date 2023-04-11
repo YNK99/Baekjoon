@@ -1,18 +1,17 @@
-N = int(input())
+sugar = int(input())
+dp = [5 for c in range(sugar // 5)] 
 
-answer = -1
-M = N // 5
-if N == 3 or N == 5:
-    print(1)
-    answer = 1
-else:
-    for i in range(M, 0, -1):
-        if (N - i * 5) % 3 == 0:
-            answer = (i + (N - i * 5) / 3)
-            print(round(answer))
-            break
-    if N % 3 == 0 and answer == -1:
-        answer = N / 3
-        print(round(answer))
-if answer == -1:
-    print(-1)
+for i in range(20):
+    if sugar == sum(dp):
+        print(len(dp))
+        break
+
+    elif sugar - sum(dp) < 3 and 5 not in dp:
+        print(-1)
+        break
+    
+    elif (sugar - sum(dp)) % 3 != 0 and sugar - sum(dp) < 3:
+        dp.pop(0)
+        dp.append(3)
+    else:
+        dp.append(3)
